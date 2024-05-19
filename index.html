@@ -1,26 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Swagger UI</title>
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дипломный проект</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
 </head>
 <body>
-  <div id="swagger-ui"></div>
-  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
-  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
-  <script>
-    window.onload = function() {
-      const ui = SwaggerUIBundle({
-        url: "./swagger/api.yaml",
-        dom_id: '#swagger-ui',
-        presets: [
-          SwaggerUIBundle.presets.apis,
-          SwaggerUIStandalonePreset
-        ],
-        layout: "StandaloneLayout"
-      });
-    }
-  </script>
+  <header>
+    <h1>Дипломный проект: Автоматизированная система мотивации менеджеров по продажам</h1>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#introduction">Введение</a></li>
+      <li><a href="#epics">Эпики</a></li>
+      <li><a href="#roles">Роли</a></li>
+      <li><a href="#user-stories">Пользовательские истории</a></li>
+      <li><a href="#bpmn">BPMN</a></li>
+      <li><a href="#sequence-diagram">Диаграмма последовательности</a></li>
+      <li><a href="#use-case-diagram">Use-case диаграмма</a></li>
+      <li><a href="#entity">Сущности</a></li>
+      <li><a href="#db">База данных</a></li>
+      <li><a href="#ui-prototype">Прототип UI</a></li>
+      <li><a href="#swagger">Swagger</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="introduction">
+      <h2>Введение</h2>
+      <p>Описание проекта...</p>
+    </section>
+    <section id="epics">
+      <h2>Эпики</h2>
+      <p>Описание эпиков...</p>
+    </section>
+    <section id="roles">
+      <h2>Роли</h2>
+      <p>Описание ролей...</p>
+    </section>
+    <section id="user-stories">
+      <h2>Пользовательские истории</h2>
+      <p>Описание пользовательских историй...</p>
+    </section>
+    <section id="bpmn">
+      <h2>BPMN</h2>
+      <img src="images/bpmn-diagram.png" alt="BPMN Диаграмма">
+    </section>
+    <section id="sequence-diagram">
+      <h2>Диаграмма последовательности</h2>
+      <img src="images/sequence-diagram.png" alt="Диаграмма последовательности">
+    </section>
+    <section id="use-case-diagram">
+      <h2>Use-case диаграмма</h2>
+      <img src="images/use-case-diagram.png" alt="Use-case диаграмма">
+    </section>
+    <section id="entity">
+      <h2>Сущности</h2>
+      <p>Описание сущностей...</p>
+    </section>
+    <section id="db">
+      <h2>База данных</h2>
+      <p>Описание базы данных...</p>
+    </section>
+    <section id="ui-prototype">
+      <h2>Прототип UI</h2>
+      <img src="images/ui-prototype.png" alt="Прототип пользовательского интерфейса">
+    </section>
+    <section id="swagger">
+      <h2>Swagger</h2>
+      <div id="swagger-ui"></div>
+      <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+      <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+      <script>
+        window.onload = function() {
+          const ui = SwaggerUIBundle({
+            url: "./swagger/api.yaml",
+            dom_id: '#swagger-ui',
+            presets: [
+              SwaggerUIBundle.presets.apis,
+              SwaggerUIStandalonePreset
+            ],
+            layout: "StandaloneLayout"
+          });
+        }
+      </script>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Дипломный проект</p>
+  </footer>
 </body>
 </html>
