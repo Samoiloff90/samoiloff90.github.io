@@ -1,0 +1,198 @@
+openapi: 3.0.0
+info:
+  title: File Management API
+  description: API для управления файлами и обработки данных
+  version: 1.0.0
+
+paths:
+  /api/auth:
+    post:
+      tags:
+      - Auth
+      summary: Аутентификация пользователя и получение ресурсов
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Успешная аутентификация
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  resources:
+                    type: array
+                    items:
+                      type: string
+        '401':
+          description: Неуспешная аутентификация
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /api/upload-data:
+    post:
+      tags:
+      - Upload-data
+      summary: Загрузка файла через фронтенд и обработка данных
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fileLink:
+                  type: string
+      responses:
+        '200':
+          description: Успешная обработка данных
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /api/ratings/office:
+    get:
+      tags:
+        - Office Rating
+      summary: Получить рейтинг менеджера по офису
+      operationId: listRatingsByOffice
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingResponse'
+        '401':
+          description: Неавторизованный доступ
+
+  /api/ratings/city:
+    get:
+      tags:
+        - City Rating
+      summary: Получить рейтинг менеджера по городу
+      operationId: listRatingsByCity
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingResponse'
+        '401':
+          description: Неавторизованный доступ
+
+  /api/ratings/territory-bank:
+    get:
+      tags:
+        - Territory Bank Rating
+      summary: Получить рейтинг менеджера по территориальному банку
+      operationId: listRatingsByTerritoryBank
+      parameters:
+        - name: Authorization
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingResponse'
+        '401':
+          description: Неавторизованный доступ
+  /api/ratings/{rating_id}/like:
+    post:
+      tags:
+      - Add like
+      summary: Поставить лайк менеджеру
+      operationId: likeRating
+      parameters:
+        - name: rating_id
+          in: path
+          description: Идентификатор рейтинга
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Данные лайка
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                liked:
+                  type: boolean
+      responses:
+        '200':
+          description: Успешно
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+        '400':
+          description: Неверные параметры запроса
+        '404':
+          description: Рейтинг не найден
+
+components:
+  schemas:
+    RatingResponse:
+      type: object
+      properties:
+        ratings:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              manager_name:
+                type: string
+              rating:
+                type: number
+              liked:
+                type: boolean
+        total_count:
+          type: integer
+          format: int64
