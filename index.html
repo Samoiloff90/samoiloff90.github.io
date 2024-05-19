@@ -6,6 +6,8 @@
   <title>Дипломный проект</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/plantuml-encoder/dist/plantuml-encoder.min.js"></script>
 </head>
 <body>
   <header>
@@ -45,15 +47,15 @@
     </section>
     <section id="bpmn">
       <h2>BPMN</h2>
-      <img src="images/bpmn-diagram.png" alt="BPMN Диаграмма">
+      <img id="bpmn-diagram" alt="BPMN Диаграмма">
     </section>
     <section id="sequence-diagram">
       <h2>Диаграмма последовательности</h2>
-      <img src="images/sequence-diagram.png" alt="Диаграмма последовательности">
+      <img id="sequence-diagram-img" alt="Диаграмма последовательности">
     </section>
     <section id="use-case-diagram">
       <h2>Use-case диаграмма</h2>
-      <img src="images/use-case-diagram.png" alt="Use-case диаграмма">
+      <img id="use-case-diagram-img" alt="Use-case диаграмма">
     </section>
     <section id="entity">
       <h2>Сущности</h2>
@@ -83,6 +85,26 @@
             ],
             layout: "StandaloneLayout"
           });
+
+          // PlantUML diagrams
+          const diagrams = {
+            'bpmn-diagram': `@startuml
+            Alice -> Bob: Authentication Request
+            Bob --> Alice: Authentication Response
+            @enduml`,
+            'sequence-diagram-img': `@startuml
+            Alice -> Bob: Hello Bob, how are you?
+            Bob --> Alice: I am good thanks!
+            @enduml`,
+            'use-case-diagram-img': `@startuml
+            User -> (Use the application)
+            @enduml`
+          };
+
+          for (const [id, uml] of Object.entries(diagrams)) {
+            const encoded = plantumlEncoder.encode(uml);
+            document.getElementById(id).src = `https://www.plantuml.com/plantuml/svg/${encoded}`;
+          }
         }
       </script>
     </section>
