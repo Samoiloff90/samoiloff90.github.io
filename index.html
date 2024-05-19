@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/plantuml-encoder/dist/plantuml-encoder.min.js"></script>
+  <script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.development.js"></script>
 </head>
 <body>
   <header>
@@ -48,7 +49,7 @@
     </section>
     <section id="bpmn">
       <h2>BPMN</h2>
-      <img id="bpmn-diagram" alt="BPMN Диаграмма">
+      <div id="bpmn-container" style="height: 500px; border: 1px solid #ccc;"></div>
     </section>
     <section id="sequence-diagram">
       <h2>Диаграмма последовательности</h2>
@@ -89,10 +90,6 @@
 
           // PlantUML diagrams
           const diagrams = {
-            'bpmn-diagram': `@startuml
-            Alice -> Bob: Authentication Request
-            Bob --> Alice: Authentication Response
-            @enduml`,
             'sequence-diagram-img': `@startuml
             Alice -> Bob: Hello Bob, how are you?
             Bob --> Alice: I am good thanks!
@@ -106,14 +103,26 @@
             const encoded = plantumlEncoder.encode(uml);
             document.getElementById(id).src = `https://www.plantuml.com/plantuml/svg/${encoded}`;
           }
+
+          // BPMN diagram
+          axios.get('./swagger/diagram.bpmn').then(response => {
+            const viewer = new BpmnJS({ container: '#bpmn-container' });
+            viewer.importXML(response.data, function(err) {
+              if (err) {
+                console.error('could not import BPMN 2.0 diagram', err);
+              } else {
+                const canvas = viewer.get('canvas');
+                canvas.zoom('fit-viewport');
+              }
+            });
+          });
         }
       </script>
     </section>
   </main>
   <footer>
-    <p>&copy; 2024 Дипломный проект</p>
-    <p>Имя Фамилия</p>
-    <p><a href="https://t.me/yourtelegram">Телеграм</a></p>
+    <p>Евгений Самойлов</p>
+    <p><a href="https://t.me/Samoiloff90">t.me: Samoiloff90</a></p>
   </footer>
 </body>
 </html>
