@@ -145,7 +145,9 @@
           }
 
           // BPMN diagram
-          axios.get('./diagrams/bpmn/bpmn.bpmn').then(response => {
+          axios.get('./diagrams/bpmn/bpmn.bpmn')
+          .then(response => {
+            console.log('BPMN file loaded:', response.data);
             const viewer = new BpmnJS({ container: '#bpmn-container' });
             viewer.importXML(response.data, function(err) {
               if (err) {
@@ -155,6 +157,9 @@
                 canvas.zoom('fit-viewport');
               }
             });
+          })
+          .catch(error => {
+            console.error('Error loading BPMN diagram:', error);
           });
         }
       </script>
