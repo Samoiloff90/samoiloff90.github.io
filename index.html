@@ -145,7 +145,7 @@
           }
 
           // BPMN diagram
-          axios.get('./swagger/diagram.bpmn').then(response => {
+          axios.get('./diagrams/bpmn/bpmn.bpmn').then(response => {
             const viewer = new BpmnJS({ container: '#bpmn-container' });
             viewer.importXML(response.data, function(err) {
               if (err) {
