@@ -9,160 +9,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/plantuml-encoder/dist/plantuml-encoder.min.js"></script>
-  <script src="https://unpkg.com/bpmn-js/dist/bpmn-viewer.development.js"></script>
+  <script src="https://unpkg.com/bpmn-js@8.8.2/dist/bpmn-viewer.development.js"></script>
+  <script src="js/scripts.js"></script>
 </head>
 <body>
   <header>
-    <h1>Дипломный проект: Автоматизированная система мотивации менеджеров по продажам</h1>
+    <div class="container">
+      <h1>Автоматизированная система мотивации менеджеров по продажам</h1>
+    </div>
   </header>
-  <nav>
-    <ul>
-      <li><a href="#introduction">Введение</a></li>
-      <li><a href="#epics">Эпики</a></li>
-      <li><a href="#roles">Роли</a></li>
-      <li><a href="#user-stories">Пользовательские истории</a></li>
-      <li><a href="#bpmn">BPMN</a></li>
-      <li><a href="#sequence-diagram">Диаграмма последовательности</a></li>
-      <li><a href="#use-case-diagram">Use-case диаграмма</a></li>
-      <li><a href="#entity">Сущности</a></li>
-      <li><a href="#db">База данных</a></li>
-      <li><a href="#ui-prototype">Прототип UI</a></li>
-      <li><a href="#swagger">Swagger</a></li>
-    </ul>
-  </nav>
-  <main>
-    <section id="introduction">
-      <h2>Введение</h2>
-      <p>Данный дипломный проект посвящен разработке технического задания для автоматизированной системы мотивации менеджеров по продажам. Система представляет собой рейтинговую таблицу, предназначенную для объективной оценки и стимулирования сотрудников.</p>
-      <p>Проект включает в себя анализ требований, разработку архитектуры системы, описание функциональных и нефункциональных требований, а также прототипы пользовательских интерфейсов.</p>
-    </section>
-    <section id="epics">
-      <h2>Эпики</h2>
-      <p>Эпики проекта:</p>
-      <ul>
-        <li>Загрузка данных в базу данных: Эпик описывает процесс загрузки файлов с данными от администратора в систему и их сохранение в базу данных.</li>
-        <li>Просмотр рейтинга менеджера по продажам: Эпик описывает процесс, включающий запрос менеджером по продажам своего рейтинга и отображение ему информации о рейтинге по офису, городу и территории.</li>
-      </ul>
-    </section>
-    <section id="roles">
-      <h2>Роли</h2>
-      <ul>
-        <li>Администратор</li>
-        <li>Менеджер по продажам</li>
-      </ul>
-    </section>
-    <section id="user-stories">
-      <h2>Пользовательские истории (User Stories)</h2>
-      <h3>Эпик: Загрузка данных в базу данных</h3>
-      <p><strong>US1:</strong> Как администратор, я хочу иметь возможность загрузить файл с данными, чтобы обновить информацию в базе данных.</p>
-      <h3>Эпик: Просмотр рейтинга менеджера по продажам</h3>
-      <p><strong>US2:</strong> Как менеджер по продажам, я хочу видеть свой рейтинг по офису, чтобы оценить свою эффективность.</p>
-      <p><strong>US3:</strong> Как менеджер по продажам, я хочу видеть свой рейтинг по городу, чтобы оценить свою эффективность.</p>
-      <p><strong>US4:</strong> Как менеджер по продажам, я хочу видеть свой рейтинг по территории, чтобы оценить свою эффективность.</p>
-      <h4>Условия приемки (Acceptance Criteria):</h4>
-      <ul>
-        <li><strong>US1:</strong> Загрузка данных в базу данных.
-          <ul>
-            <li>AC1: Файл должен быть успешно загружен в систему.</li>
-            <li>AC2: Данные из файла должны быть корректно сохранены в базу данных.</li>
-          </ul>
-        </li>
-        <li><strong>US2:</strong> Просмотр рейтинга менеджера по продажам.
-          <ul>
-            <li>AC1: Менеджер должен иметь возможность запросить свой рейтинг по офису.</li>
-            <li>AC2: Рейтинг по офису должен быть корректно отображен.</li>
-          </ul>
-        </li>
-        <li><strong>US3:</strong> Просмотр рейтинга менеджера по продажам.
-          <ul>
-            <li>AC1: Менеджер должен иметь возможность запросить свой рейтинг по городу.</li>
-            <li>AC2: Рейтинг по городу должен быть корректно отображен.</li>
-          </ul>
-        </li>
-        <li><strong>US4:</strong> Просмотр рейтинга менеджера по продажам.
-          <ul>
-            <li>AC1: Менеджер должен иметь возможность запросить свой рейтинг по территории.</li>
-            <li>AC2: Рейтинг по территории должен быть корректно отображен.</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-    <section id="bpmn">
-      <h2>BPMN</h2>
-      <div id="bpmn-container" style="height: 500px; border: 1px solid #ccc;"></div>
-    </section>
-    <section id="sequence-diagram">
-      <h2>Диаграмма последовательности</h2>
-      <img id="sequence-diagram-img" alt="Диаграмма последовательности">
-    </section>
-    <section id="use-case-diagram">
-      <h2>Use-case диаграмма</h2>
-      <img id="use-case-diagram-img" alt="Use-case диаграмма">
-    </section>
-    <section id="entity">
-      <h2>Сущности</h2>
-      <p>Описание сущностей...</p>
-    </section>
-    <section id="db">
-      <h2>База данных</h2>
-      <p>Описание базы данных...</p>
-    </section>
-    <section id="ui-prototype">
-      <h2>Прототип UI</h2>
-      <img src="images/ui-prototype.png" alt="Прототип пользовательского интерфейса">
-    </section>
     <section id="swagger">
-      <h2>Swagger</h2>
+      <!-- <h2>Swagger</h2> -->
       <div id="swagger-ui"></div>
       <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
       <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
-      <script>
-        window.onload = function() {
-          const ui = SwaggerUIBundle({
-            url: "./swagger/api.yaml",
-            dom_id: '#swagger-ui',
-            presets: [
-              SwaggerUIBundle.presets.apis,
-              SwaggerUIStandalonePreset
-            ],
-            layout: "StandaloneLayout"
-          });
-
-          // PlantUML diagrams
-          const diagrams = {
-            'sequence-diagram-img': `@startuml
-            Alice -> Bob: Hello Bob, how are you?
-            Bob --> Alice: I am good thanks!
-            @enduml`,
-            'use-case-diagram-img': `@startuml
-            User -> (Use the application)
-            @enduml`
-          };
-
-          for (const [id, uml] of Object.entries(diagrams)) {
-            const encoded = plantumlEncoder.encode(uml);
-            document.getElementById(id).src = `https://www.plantuml.com/plantuml/svg/${encoded}`;
-          }
-
-          // BPMN diagram
-          axios.get('./diagrams/bpmn/bpmn.bpmn')
-          .then(response => {
-            console.log('BPMN file loaded:', response.data);
-            const viewer = new BpmnJS({ container: '#bpmn-container' });
-            viewer.importXML(response.data, function(err) {
-              if (err) {
-                console.error('could not import BPMN 2.0 diagram', err);
-              } else {
-                const canvas = viewer.get('canvas');
-                canvas.zoom('fit-viewport');
-              }
-            });
-          })
-          .catch(error => {
-            console.error('Error loading BPMN diagram:', error);
-          });
-        }
-      </script>
     </section>
   </main>
   <footer>
