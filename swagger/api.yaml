@@ -24,13 +24,16 @@ paths:
       responses:
         '200':
           description: Успешная аутентификация
+          headers:
+            Authorization:
+              description: Токен авторизации
+              schema:
+                type: string
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  token:
-                    type: string
                   resources:
                     type: array
                     items:
@@ -135,6 +138,7 @@ paths:
                 $ref: '#/components/schemas/RatingResponse'
         '401':
           description: Неавторизованный доступ
+
   /api/ratings/{rating_id}/like:
     post:
       tags:
