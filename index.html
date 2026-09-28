@@ -1,33 +1,423 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дипломный проект</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://unpkg.com/plantuml-encoder/dist/plantuml-encoder.min.js"></script>
-  <script src="https://unpkg.com/bpmn-js@8.8.2/dist/bpmn-viewer.development.js"></script>
-  <script src="js/scripts.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Евгений Самойлов — Delivery Manager, руководитель ИТ-проектов</title>
+  <meta name="description" content="Delivery Manager и руководитель ИТ-проектов в X5 Tech, ранее Сбер. Развиваю цифровые продукты: от discovery и гипотез до релиза и роста метрик.">
+  <link rel="canonical" href="https://samoiloff90.github.io/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Евгений Самойлов">
+  <meta property="og:title" content="Евгений Самойлов — Delivery Manager, руководитель ИТ-проектов">
+  <meta property="og:description" content="X5 Tech, ранее Сбер. Конверсия +40%, подключение служб доставки в 4 раза быстрее, 20% HR-операций закрывает ИИ-бот.">
+  <meta property="og:url" content="https://samoiloff90.github.io/">
+  <meta property="og:image" content="https://samoiloff90.github.io/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1016" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Евгений Самойлов",
+    "jobTitle": "Delivery Manager",
+    "worksFor": { "@type": "Organization", "name": "X5 Tech" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Москва", "addressCountry": "RU" },
+    "email": "mailto:i@samoiloff90.ru",
+    "url": "https://samoiloff90.github.io/",
+    "image": "https://samoiloff90.github.io/assets/img/photo.jpg",
+    "sameAs": [
+      "https://t.me/Samoiloff90",
+      "https://www.linkedin.com/in/samoiloff/",
+      "https://github.com/Samoiloff90"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Автоматизированная система мотивации менеджеров по продажам</h1>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-telegram" viewBox="0 0 24 24"><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 128 128"><path fill="currentColor" d="M116 3H12a8.91 8.91 0 00-9 8.8v104.42a8.91 8.91 0 009 8.78h104a8.93 8.93 0 009-8.81V11.77A8.93 8.93 0 00116 3zM39.17 107H21.06V48.73h18.11zm-9-66.21a10.5 10.5 0 1110.49-10.5 10.5 10.5 0 01-10.54 10.48zM107 107H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53V48.73h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></g></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></g></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Перейти к содержанию</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#top" aria-label="Евгений Самойлов — в начало"><span class="brand__mark" aria-hidden="true">ЕС</span><span class="brand__name">Евгений Самойлов</span></a>
+      <nav aria-label="Разделы">
+        <ul>
+          <li><a href="#results">Результаты</a></li>
+          <li><a href="#approach">Подход</a></li>
+          <li><a href="#experience">Опыт</a></li>
+          <li><a href="#projects">Проекты</a></li>
+          <li><a href="#skills">Навыки</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="topbar__actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Переключить тему">
+          <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button class="btn btn--small" id="print-btn" type="button" aria-label="Сохранить резюме в PDF">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span>Резюме в PDF</span>
+        </button>
+      </div>
     </div>
   </header>
-    <section id="swagger">
-      <!-- <h2>Swagger</h2> -->
-      <div id="swagger-ui"></div>
-      <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
-      <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+
+  <main id="main">
+    <!-- Первый экран -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="hero__grid">
+          <div class="hero__text">
+            <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Delivery Manager в&nbsp;X5&nbsp;Tech</p>
+            <h1>Евгений Самойлов</h1>
+            <p class="hero__roles">Руководитель ИТ-проектов · Delivery Manager · Product Owner</p>
+            <p class="hero__lead">Развиваю цифровые продукты на&nbsp;стыке бизнеса и&nbsp;технологий. Шесть лет в&nbsp;X5&nbsp;Tech и&nbsp;Сбере: от&nbsp;discovery и&nbsp;гипотез до&nbsp;релиза и&nbsp;роста метрик.</p>
+            <p class="hero__contacts print-only">Москва · Telegram: @Samoiloff90 · i@samoiloff90.ru · linkedin.com/in/samoiloff · github.com/Samoiloff90 · samoiloff90.github.io</p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="https://t.me/Samoiloff90"><svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg>Написать в Telegram</a>
+              <a class="btn" href="mailto:i@samoiloff90.ru"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>i@samoiloff90.ru</a>
+            </div>
+            <ul class="hero__links">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg><a href="https://www.linkedin.com/in/samoiloff/">LinkedIn</a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><a href="https://github.com/Samoiloff90">GitHub</a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Москва</li>
+            </ul>
+          </div>
+          <figure class="hero__photo">
+            <img src="assets/img/photo.jpg" width="460" height="460" alt="Евгений Самойлов">
+          </figure>
+        </div>
+
+        <dl class="scale">
+          <div><dt>6 лет</dt><dd>в&nbsp;X5&nbsp;Tech и&nbsp;Сбере</dd></div>
+          <div><dt>до&nbsp;20</dt><dd>человек в&nbsp;команде</dd></div>
+          <div><dt>134&nbsp;тыс.</dt><dd>DAU у&nbsp;HR-платформы Support-HR</dd></div>
+          <div><dt>7+&nbsp;млн</dt><dd>MAU у&nbsp;витрины новостроек Сбера</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section__head"><h2>Обо мне</h2></div>
+        <p class="about__lead reveal">Руководитель ИТ-проектов с&nbsp;компетенциями системного аналитика. Соединяю бизнес-задачи и&nbsp;техническую реализацию, чтобы сокращать Time-to-Market: формирую стратегию, роадмап и&nbsp;метрики ценности, выстраиваю процессы разработки, проектирую архитектуру и&nbsp;API и&nbsp;довожу продукты до&nbsp;реальной ценности для&nbsp;клиента.</p>
+        <ul class="cards-4">
+          <li class="card reveal"><h3>Сейчас</h3><p>В&nbsp;X5&nbsp;Tech веду портфель цифровых HR-продуктов и&nbsp;кросс-функциональную команду до&nbsp;20&nbsp;человек: аналитики, backend, frontend, QA, DevOps и&nbsp;подрядчики.</p></li>
+          <li class="card reveal"><h3>Технический бэкграунд</h3><p>Проектирую API и&nbsp;интеграции, разбираюсь в&nbsp;Kafka, BPMN и&nbsp;SQL, писал автотесты на&nbsp;Java и&nbsp;парсеры на&nbsp;Python. С&nbsp;разработчиками говорю на&nbsp;одном языке.</p></li>
+          <li class="card reveal"><h3>ИИ в&nbsp;работе</h3><p>Запустил ИИ-бота, который закрывает 20% типовых HR-операций, и&nbsp;внедрил разработку с&nbsp;ИИ-ассистентами.</p></li>
+          <li class="card reveal"><h3>Вне работы</h3><p>Спорт и&nbsp;джиу-джитсу: держат энергию и&nbsp;фокус на&nbsp;результате.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Результаты -->
+    <section class="section" id="results">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Результаты в&nbsp;цифрах</h2>
+          <p>Что изменилось в&nbsp;продуктах и&nbsp;процессах после моих инициатив.</p>
+        </div>
+        <ul class="kpis">
+          <li class="kpi reveal" data-cat="growth"><span class="kpi__cat">Рост</span><strong class="kpi__value">+40%</strong><p>конверсия витрины новостроек после переработки пользовательского пути</p><span class="kpi__where">Сбер</span></li>
+          <li class="kpi reveal" data-cat="growth"><span class="kpi__cat">Рост</span><strong class="kpi__value">+30%</strong><p>переходов на&nbsp;страницы ЖК после внедрения ML-оценки фото</p><span class="kpi__where">Сбер</span></li>
+          <li class="kpi reveal" data-cat="speed"><span class="kpi__cat">Скорость</span><strong class="kpi__value">×4</strong><p>быстрее подключение почтовых и&nbsp;курьерских операторов с&nbsp;PostTracking</p><span class="kpi__where">X5&nbsp;Tech</span></li>
+          <li class="kpi reveal" data-cat="automation"><span class="kpi__cat">Автоматизация</span><strong class="kpi__value">20%</strong><p>типовых HR-операций закрывает ИИ-бот</p><span class="kpi__where">X5&nbsp;Tech</span></li>
+          <li class="kpi reveal" data-cat="efficiency"><span class="kpi__cat">Эффективность</span><strong class="kpi__value">×10</strong><p>меньше трудозатрат команды после запуска PostTracking</p><span class="kpi__where">X5&nbsp;Tech</span></li>
+          <li class="kpi reveal" data-cat="efficiency"><span class="kpi__cat">Эффективность</span><strong class="kpi__value">×2</strong><p>меньше трудозатрат дата-аналитиков благодаря Python-парсерам</p><span class="kpi__where">Сбер</span></li>
+          <li class="kpi reveal" data-cat="efficiency"><span class="kpi__cat">Эффективность</span><strong class="kpi__value">−40%</strong><p>трудозатрат договорного отдела после интеграции сайта с&nbsp;1С</p><span class="kpi__where">ЭкоСтройРесурс</span></li>
+          <li class="kpi reveal" data-cat="infra"><span class="kpi__cat">Инфраструктура</span><strong class="kpi__value">−30%</strong><p>нагрузки при доступности 99,99% после перехода на&nbsp;Kafka</p><span class="kpi__where">X5&nbsp;Tech</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Подход -->
+    <section class="section" id="approach">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Как я развиваю продукт</h2>
+          <p>Цикл, по&nbsp;которому работаю, и&nbsp;где он уже сработал.</p>
+        </div>
+        <ol class="loop">
+          <li class="card reveal">
+            <span class="loop__num">01</span>
+            <h3>Discovery</h3>
+            <p class="loop__tools">CustDev · JTBD · CJM</p>
+            <p>По&nbsp;итогам CJM, CustDev и&nbsp;анализа метрик переработал пользовательский путь витрины новостроек в&nbsp;Сбере: конверсия выросла на&nbsp;40%.</p>
+          </li>
+          <li class="card reveal">
+            <span class="loop__num">02</span>
+            <h3>Концепция и&nbsp;MVP</h3>
+            <p class="loop__tools">гипотезы · RICE · границы MVP</p>
+            <p>Инициировал в&nbsp;X5&nbsp;Tech внутренний продукт Fast Report (аналог Jam.dev) для&nbsp;баг-репортов: сформировал концепцию и&nbsp;требования, организовал работу команды, довёл до&nbsp;MVP.</p>
+          </li>
+          <li class="card reveal">
+            <span class="loop__num">03</span>
+            <h3>Delivery</h3>
+            <p class="loop__tools">роадмап · релизы · Time-to-Market</p>
+            <p>Веду роадмап на&nbsp;6–12&nbsp;месяцев, backlog и&nbsp;релизы кросс-функциональной команды до&nbsp;20&nbsp;человек: от&nbsp;требований до&nbsp;промышленной эксплуатации.</p>
+          </li>
+          <li class="card reveal">
+            <span class="loop__num">04</span>
+            <h3>Метрики</h3>
+            <p class="loop__tools">A/B-тесты · DAU/MAU · SLA</p>
+            <p>В&nbsp;Сбере настраивал Firebase Analytics и&nbsp;Sentry, проводил A/B-тесты. В&nbsp;X5&nbsp;Tech контролирую продуктовые и&nbsp;операционные KPI: DAU/MAU, Time-to-Market, SLA, доступность, ROI, FTE.</p>
+          </li>
+        </ol>
+        <p class="loop__back reveal"><span aria-hidden="true">↻</span>Метрики дают новые гипотезы, и&nbsp;цикл начинается снова.</p>
+      </div>
+    </section>
+
+    <!-- Опыт -->
+    <section class="section" id="experience">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Опыт</h2>
+          <p>14&nbsp;лет опыта, из&nbsp;них 6&nbsp;лет в&nbsp;ИТ-продуктах X5&nbsp;Tech и&nbsp;Сбера.</p>
+        </div>
+        <div class="jobs">
+          <article class="job reveal">
+            <div class="job__meta"><span class="job__period">апр 2023 — сейчас</span><span>Москва</span></div>
+            <div>
+              <h3 class="job__company">X5 Tech</h3>
+              <p class="job__role">Руководитель ИТ-проектов / Delivery Manager</p>
+              <p class="job__summary">Управляю портфелем проектов и&nbsp;развитием цифровых HR-продуктов по&nbsp;Agile/Scrum: роадмап на&nbsp;6–12&nbsp;месяцев, backlog, приоритизация и&nbsp;планирование релизов, работа со&nbsp;стейкхолдерами, рисками и&nbsp;зависимостями. Команда до&nbsp;20&nbsp;человек и&nbsp;внешние подрядчики.</p>
+              <h4>Продукты</h4>
+              <ul class="bullets">
+                <li><strong>Support-HR</strong>: корпоративная HR-платформа (134&nbsp;тыс. DAU, до&nbsp;100&nbsp;RPS), включая личный кабинет HR-специалиста и&nbsp;сервис постановки задач.</li>
+                <li>Также ТРИП (сервис командировок), курьерская доставка документов, электронная подпись (на&nbsp;поддержке) и&nbsp;BI-отчётность (поставщик данных).</li>
+              </ul>
+              <h4>Результаты</h4>
+              <ul class="bullets">
+                <li>Руководил переводом интеграционной платформы на&nbsp;событийную архитектуру Kafka: до&nbsp;700&nbsp;тыс. событий в&nbsp;сутки (до&nbsp;120&nbsp;тыс. в&nbsp;час), нагрузка на&nbsp;инфраструктуру <strong>−30%</strong> при сохранении доступности <strong>99,99%</strong>.</li>
+                <li>Запустил систему PostTracking: подключение новых почтовых и&nbsp;курьерских операторов в&nbsp;<strong>4&nbsp;раза</strong> быстрее, трудозатраты команды в&nbsp;<strong>10&nbsp;раз</strong> меньше, Time-to-Market при изменении логистических процессов значительно сократился.</li>
+                <li>Организовал запуск ИИ-бота, который автоматизировал <strong>20%</strong> типовых HR-операций специалистов.</li>
+                <li>Курировал миграцию корпоративной инфраструктуры с&nbsp;VMware в&nbsp;облачную платформу Salt: инвентаризация виртуальных машин, актуализация документации, вывод неиспользуемых ресурсов и&nbsp;поэтапный перенос окружений от&nbsp;Development до&nbsp;Production.</li>
+                <li>Инициировал и&nbsp;курировал разработку внутреннего инструмента Fast Report (аналог Jam.dev): концепция продукта, требования, команда и&nbsp;MVP для&nbsp;автоматизации баг-репортов.</li>
+                <li>Внедрение системы «РИО Архив» с&nbsp;интеграцией с&nbsp;SAP&nbsp;HR и&nbsp;Support-HR.</li>
+              </ul>
+              <ul class="chips" aria-label="Стек команды">
+                <li>Java</li><li>Spring</li><li>Kafka</li><li>Camunda BPMS</li><li>PostgreSQL</li><li>Redis</li><li>Python (Django)</li><li>React</li><li>Node.js</li><li>REST API</li><li>S3</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job reveal">
+            <div class="job__meta"><span class="job__period">сен 2020 — мар 2023</span><span>Москва</span></div>
+            <div>
+              <h3 class="job__company">Сбер</h3>
+              <p class="job__role">Руководитель ИТ-проектов / Системный аналитик</p>
+              <p class="job__summary">Проекты полного цикла: от&nbsp;сбора требований до&nbsp;промышленной эксплуатации и&nbsp;пострелизной поддержки. Кросс-функциональная команда до&nbsp;9&nbsp;человек. Совмещал роли системного и&nbsp;бизнес-аналитика: API и&nbsp;контракты, CustDev, CJM, продуктовые гипотезы, границы MVP.</p>
+              <h4>Продукты</h4>
+              <ul class="bullets">
+                <li><strong>Витрина новостроек</strong>: один из&nbsp;крупнейших B2C-сервисов Сбера для&nbsp;рынка недвижимости (7+&nbsp;млн MAU, 600+&nbsp;тыс. DAU) и&nbsp;один из&nbsp;ключевых драйверов ипотечных выдач банка.</li>
+                <li><strong>Campaign Management Platform</strong>: платформа массовых маркетинговых коммуникаций банка.</li>
+              </ul>
+              <h4>Результаты</h4>
+              <ul class="bullets">
+                <li>Повысил конверсию витрины новостроек на&nbsp;<strong>40%</strong>, переработав пользовательский путь по&nbsp;итогам CJM, CustDev и&nbsp;анализа продуктовых метрик.</li>
+                <li>Увеличил переходы на&nbsp;страницы жилых комплексов на&nbsp;<strong>30%</strong>: организовал внедрение ML Computer Vision для&nbsp;автоматической оценки качества фотографий застройщиков.</li>
+                <li>Сократил трудозатраты дата-аналитиков в&nbsp;<strong>2&nbsp;раза</strong>: сделал MVP Python-парсеров для&nbsp;анализа рынка недвижимости и&nbsp;организовал их промышленную реализацию.</li>
+                <li>Участвовал в&nbsp;миграции маркетинговых кампаний с&nbsp;SAS на&nbsp;jBPM: стоимость сопровождения <strong>−5%</strong>, производительность около <strong>+20%</strong>.</li>
+                <li>Развивал data-driven подход: Firebase Analytics, Sentry, A/B-тесты, проверка гипотез по&nbsp;продуктовым метрикам.</li>
+              </ul>
+              <ul class="chips" aria-label="Стек">
+                <li>jBPM (Java)</li><li>SQL</li><li>REST API</li><li>Python</li><li>Firebase Analytics</li><li>Sentry</li><li>ML Computer Vision</li><li>Jira</li><li>Confluence</li><li>Postman</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job reveal">
+            <div class="job__meta"><span class="job__period">апр 2019 — сен 2020</span><span>Самара</span></div>
+            <div>
+              <h3 class="job__company">ЭкоСтройРесурс</h3>
+              <p class="job__role">Бизнес-аналитик</p>
+              <p class="job__summary">Автоматизация документооборота и&nbsp;согласования договоров в&nbsp;коммерческом отделе (около 50&nbsp;сотрудников), интеграция сайта компании с&nbsp;1С. Ставил задачи ИТ-отделу, собирал требования, проектировал процессы и&nbsp;регламенты с&nbsp;нуля.</p>
+              <h4>Результаты</h4>
+              <ul class="bullets">
+                <li>Автоматизировал с&nbsp;нуля <strong>15</strong> бизнес-процессов договорного отдела: разработал методологии и&nbsp;регламенты, оптимизировал ключевые процессы.</li>
+                <li>Сократил трудозатраты договорного отдела на&nbsp;<strong>40%</strong>: спроектировал и&nbsp;запустил интеграцию сайта компании с&nbsp;1С.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job reveal">
+            <div class="job__meta"><span class="job__period">мар 2012 — апр 2019</span></div>
+            <div>
+              <h3 class="job__company">B2B и&nbsp;B2C компании</h3>
+              <p class="job__role">От&nbsp;консультанта по&nbsp;продажам до&nbsp;начальника договорного отдела</p>
+              <p class="job__summary">Более шести лет в&nbsp;продажах и&nbsp;договорной работе, в&nbsp;том числе в&nbsp;КБ «Солидарность».</p>
+              <ul class="bullets" style="margin-top:12px">
+                <li>В&nbsp;период массовых сокращений сохранил производительность договорного отдела при сокращении штата с&nbsp;50 до&nbsp;8&nbsp;человек: автоматизировал процессы и&nbsp;перестроил работу команды.</li>
+                <li>Выстроил продажи кредитных продуктов в&nbsp;удалённом филиале: <strong>+48%</strong> за&nbsp;первый год и&nbsp;ещё <strong>+21%</strong> за&nbsp;второй.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Проекты -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Проекты</h2>
+          <p>Что делаю сам, помимо основной работы.</p>
+        </div>
+        <div class="projects">
+          <article class="card project project--featured reveal">
+            <span class="project__label">Мой продукт · в&nbsp;активной разработке</span>
+            <h3>Capacity Planner</h3>
+            <dl>
+              <dt>Для кого</dt><dd>Руководители команд и&nbsp;delivery-менеджеры, которые планируют квартал.</dd>
+              <dt>Задача</dt><dd>Понять, хватит ли часов команды на&nbsp;квартальный план с&nbsp;учётом ставок, отпусков, праздников и&nbsp;долей направлений.</dd>
+              <dt>Решение</dt><dd>Десктоп-приложение считает доступные часы, потребность по&nbsp;задачам и&nbsp;дефицит по&nbsp;каждому направлению, выгружает отчёт в&nbsp;XLSX. Учитывает производственный календарь РФ, данные хранит локально в&nbsp;SQLite.</dd>
+            </dl>
+            <ul class="chips" aria-label="Стек"><li>Tauri 2</li><li>React 18</li><li>TypeScript</li><li>Rust</li><li>SQLite</li></ul>
+            <p class="project__links"><a href="https://github.com/Samoiloff90/capacity-manager">Репозиторий <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </article>
+
+          <article class="card project reveal">
+            <span class="project__label">Архитектура ПО · Яндекс Практикум</span>
+            <h3>CinemaAbyss</h3>
+            <p>Вынос микросервисов из&nbsp;монолита по&nbsp;паттерну Strangler Fig, API Gateway с&nbsp;процентной маршрутизацией трафика, события через Kafka, развёртывание в&nbsp;Kubernetes через Helm, CI/CD на&nbsp;GitHub Actions.</p>
+            <ul class="chips" aria-label="Стек"><li>Go</li><li>Kafka</li><li>Kubernetes</li><li>Helm</li><li>GitHub Actions</li></ul>
+            <p class="project__links"><a href="https://github.com/Samoiloff90/architecture-pro-cinemaabyss">Репозиторий <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </article>
+
+          <article class="card project project--secondary reveal">
+            <span class="project__label">Дипломный проект</span>
+            <h3>Система мотивации менеджеров по&nbsp;продажам</h3>
+            <p>Автоматизированная система мотивации: спецификация API в&nbsp;Swagger (OpenAPI) и&nbsp;BPMN-модель процесса.</p>
+            <ul class="chips" aria-label="Инструменты"><li>OpenAPI</li><li>Swagger</li><li>BPMN</li></ul>
+            <p class="project__links">
+              <a href="diploma/">Открыть <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a href="https://github.com/Samoiloff90/samoiloff90.github.io/tree/main/diploma">Исходники <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </p>
+          </article>
+
+          <article class="card project project--secondary reveal">
+            <span class="project__label">2021–2022</span>
+            <h3>Ранние репозитории</h3>
+            <p>Время, когда я учился автоматизации тестирования и&nbsp;вёрстке: UI-автотесты на&nbsp;Selenide, API-тесты на&nbsp;REST Assured с&nbsp;отчётами Allure, сборки в&nbsp;Jenkins, мобильные автотесты под&nbsp;Android, учебные сайты.</p>
+            <p class="project__links"><a href="https://github.com/Samoiloff90?tab=repositories">Все репозитории <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Навыки -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section__head"><h2>Навыки и&nbsp;инструменты</h2></div>
+        <div class="skills">
+          <div class="card reveal">
+            <h3>Продукт и&nbsp;управление</h3>
+            <ul class="chips"><li>Agile</li><li>Scrum</li><li>SAFe</li><li>Lean</li><li>Delivery Management</li><li>Product Discovery</li><li>CustDev</li><li>JTBD</li><li>CJM</li><li>RICE</li><li>Роадмап</li><li>Управление backlog</li></ul>
+          </div>
+          <div class="card reveal">
+            <h3>Аналитика и&nbsp;метрики</h3>
+            <ul class="chips"><li>A/B-тесты</li><li>SQL</li><li>Firebase Analytics</li><li>Sentry</li><li>DAU/MAU</li><li>Time-to-Market</li><li>SLA</li><li>ROI</li></ul>
+          </div>
+          <div class="card reveal">
+            <h3>Проектирование и&nbsp;интеграции</h3>
+            <ul class="chips"><li>REST API</li><li>Swagger</li><li>Postman</li><li>BPMN</li><li>UML</li><li>Use Case</li><li>Apache Kafka</li><li>Camunda</li><li>jBPM</li></ul>
+          </div>
+          <div class="card reveal">
+            <h3>Инструменты</h3>
+            <ul class="chips"><li>Jira</li><li>Confluence</li><li>Miro</li><li>Git</li></ul>
+          </div>
+          <div class="card skills__stack reveal">
+            <h3>Стек моих команд</h3>
+            <ul class="chips"><li>Java</li><li>Spring</li><li>PostgreSQL</li><li>Redis</li><li>Python</li><li>Django</li><li>React</li><li>Node.js</li><li>S3</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Обучение -->
+    <section class="section" id="education">
+      <div class="wrap">
+        <div class="section__head"><h2>Обучение</h2></div>
+        <div class="edu">
+          <div class="card reveal">
+            <ul class="courses">
+              <li><span class="courses__year">2025–2026</span><div><p class="courses__name">Архитектура программного обеспечения</p><p class="courses__school">Яндекс Практикум, проектные работы на&nbsp;GitHub</p></div></li>
+              <li><span class="courses__year">2025</span><div><p class="courses__name">System Design</p><p class="courses__school">karpov.courses</p></div></li>
+              <li><span class="courses__year">2024</span><div><p class="courses__name">Product Manager</p><p class="courses__school">ProductStar</p></div></li>
+              <li><span class="courses__year">2023</span><div><p class="courses__name">System Analysis in Fintech</p><p class="courses__school">Цифровые привычки Head Bridge, системный аналитик (мидл)</p></div></li>
+              <li><span class="courses__year">2021</span><div><p class="courses__name">API: REST Assured + Java</p><p class="courses__school">Udemy, автоматизация тестирования REST API</p></div></li>
+              <li><span class="courses__year">2021</span><div><p class="courses__name">Программирование на&nbsp;Python</p><p class="courses__school">Bioinformatics Institute</p></div></li>
+              <li><span class="courses__year">2021</span><div><p class="courses__name">Интерактивный тренажёр по&nbsp;SQL</p></div></li>
+            </ul>
+          </div>
+          <div class="card reveal">
+            <h3>Высшее образование</h3>
+            <p style="margin-top:8px">Самарский институт Российского государственного торгово-экономического университета</p>
+            <p class="courses__school" style="margin-top:6px">Торговое дело, маркетинг · 2016</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="section" id="contacts">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Контакты</h2>
+          <p>Написать проще всего в&nbsp;Telegram.</p>
+        </div>
+        <div class="contacts">
+          <a class="card contact reveal" href="https://t.me/Samoiloff90"><svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg><span class="contact__name">Telegram</span><span class="contact__value">@Samoiloff90</span></a>
+          <a class="card contact reveal" href="mailto:i@samoiloff90.ru"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span class="contact__name">Email</span><span class="contact__value">i@samoiloff90.ru</span></a>
+          <a class="card contact reveal" href="https://www.linkedin.com/in/samoiloff/"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg><span class="contact__name">LinkedIn</span><span class="contact__value">in/samoiloff</span></a>
+          <a class="card contact reveal" href="https://github.com/Samoiloff90"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><span class="contact__name">GitHub</span><span class="contact__value">Samoiloff90</span></a>
+        </div>
+      </div>
     </section>
   </main>
-  <footer>
-    <p>Евгений Самойлов</p>
-    <p><a href="https://t.me/Samoiloff90">t.me: Samoiloff90</a></p>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Евгений Самойлов</span>
+      <span>Обновлено в&nbsp;сентябре 2026 · резюме можно сохранить в&nbsp;PDF кнопкой вверху</span>
+    </div>
   </footer>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
